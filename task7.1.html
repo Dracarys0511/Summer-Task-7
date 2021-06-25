@@ -1,0 +1,59 @@
+<script>
+function lw() {
+var i =document.getElementById("in1").value
+var xhr =new XMLHttpRequest();
+xhr.open("GET","http://192.168.1.9/cgi-bin/linux.py?x="+i,true);
+xhr.send();
+xhr.onload=function(){
+var output = xhr.responseText;
+document.getElementById("d1").innerHTML=output;
+}
+}
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+h1 {
+  background-color: black;
+  color: white;
+}
+h3 {
+  color: black;
+  background:linear-gradient(lightblue, violet);
+  width: 650px
+}
+body {
+  font-family: "Sofia", sans-serif;
+}
+.btn {
+  background-color: rgba(0,0,0,0.50);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: rgba(49,135,247,0.50);
+}
+</style>
+<center><h1> A Simple Web Page to Run Docker commands </h1></center>
+<body style="background-image: url('https://images.pexels.com/photos/258109/pexels-photo-258109.jpeg?cs=srgb&dl=pexels-pixabay-258109.jpg&fm=jpg'); background-repeat: no-repeat; background-size: 100%;">
+<img src="https://miro.medium.com/max/500/1*E8IgOSkMTpBRs0w0-Zsx2g.gif" height=160 width=360 align= right><br>
+<center><h3>[root@localhost]#<input style= "width:500px; height:40px;" id ="in1">
+	<br></h3></center>
+<pre>
+<center>
+<img src="https://i.gifer.com/KCz0.gif" height=400 width=400 align=left>
+
+<div style="background-color: black; color: white; width: 700px;" id="d1">Write the command you wish to run on the above text box and Click the Button below</div>
+</center>
+</pre>
+<button class= "btn" onclick="lw()"><b>Run Command</b></button>
+</body>
